@@ -20,6 +20,14 @@ app.use("/api/user", userRoutes)
 app.use("/api/chat", chatRoutes)
 app.use("/api/message", messageRoutes)
 
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
