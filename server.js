@@ -31,6 +31,7 @@ const io = require("socket.io")(server, {
     pingTimeout: 60000,
     cors: {
         origin: "https://friends-chat-application.netlify.app",
+        // origin: "http://localhost:3000",
     }
 })
 console.log("hi");
@@ -39,7 +40,7 @@ io.on("connection", (socket) => {
 
     socket.on("setup", (userData) => {
         socket.join(userData._id);
-        console.log(userData._id);
+        console.log("userData._id");
         socket.emit("connected");
     });
 
