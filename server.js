@@ -8,10 +8,10 @@ const cors = require("cors");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware.js");
 
 dotenv.config();
-app.use(cors());
 connectDB();
 const app = express()
 app.use(express.json())
+app.use(cors());
 
 app.get("/abc", (req, res) => {
     res.json({ msg: "Api is running" });
